@@ -1,0 +1,20 @@
+# permissions for end users to view hadoops.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: hadoop-viewer-role
+rules:
+- apiGroups:
+  - apache.learn.org
+  resources:
+  - hadoops
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apache.learn.org
+  resources:
+  - hadoops/status
+  verbs:
+  - get

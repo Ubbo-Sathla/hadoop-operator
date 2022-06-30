@@ -1,0 +1,6 @@
+apiVersion: apache.learn.org/v1
+kind: Hadoop
+metadata:
+  name: hadoop-sample
+spec:
+  # TODO(user): Add fields here

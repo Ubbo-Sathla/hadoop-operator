@@ -1,0 +1,24 @@
+# permissions for end users to edit hadoops.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: hadoop-editor-role
+rules:
+- apiGroups:
+  - apache.learn.org
+  resources:
+  - hadoops
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - apache.learn.org
+  resources:
+  - hadoops/status
+  verbs:
+  - get

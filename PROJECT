@@ -1,0 +1,16 @@
+domain: learn.org
+layout:
+- go.kubebuilder.io/v3
+projectName: hadoop-operator
+repo: github.com/Ubbo-Sathla/hadoop-operator
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: learn.org
+  group: apache
+  kind: Hadoop
+  path: github.com/Ubbo-Sathla/hadoop-operator/api/v1
+  version: v1
+version: "3"
