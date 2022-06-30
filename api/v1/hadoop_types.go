@@ -28,8 +28,10 @@ type HadoopSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Foo is an example field of Hadoop. Edit hadoop_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	// Quantity of hadoop slave instances
+	// +kubebuilder:validation:Minimum=1
+	// +kubebuilder:validation:Maximum=10
+	ClusterSize int32 `json:"clusterSize"`
 }
 
 // HadoopStatus defines the observed state of Hadoop
