@@ -4,3 +4,6 @@ metadata:
   name: hadoop-sample
 spec:
   # TODO(user): Add fields here
+  healthPort: 9000
+  image: harbor.boncloud.com/hadoop/hadoop:3.3.1
+  clusterSize: 3

@@ -31,7 +31,9 @@ type HadoopSpec struct {
 	// Quantity of hadoop slave instances
 	// +kubebuilder:validation:Minimum=1
 	// +kubebuilder:validation:Maximum=10
-	ClusterSize int32 `json:"clusterSize"`
+	ClusterSize int32  `json:"clusterSize"`
+	Image       string `json:"image,omitempty"`
+	HealthPort  int32  `json:"healthPort"`
 }
 
 // HadoopStatus defines the observed state of Hadoop
