@@ -7,7 +7,7 @@ ENV HADOOP_HOME /opt/hadoop-3.3.1
 
 ENV PATH $HADOOP_HOME/sbin:$HADOOP_HOME/bin:$JAVA_HOME/bin:$PATH
 
-RUN apt update || true && apt install -y  openssh-server openssh-client net-tools dnsutils wget || true && rm -f /var/cache/apt/archives/*.deb /var/cache/apt/archives/partial/*.deb /var/cache/apt/*.bin || true && rm -rf /var/lib/{apt,dpkg,cache,log}
+RUN apt update || true && apt install -y  openssh-server openssh-client net-tools dnsutils wget curl jq || true && rm -f /var/cache/apt/archives/*.deb /var/cache/apt/archives/partial/*.deb /var/cache/apt/*.bin || true && rm -rf /var/lib/{apt,dpkg,cache,log}
 RUN wget -O /usr/local/bin/gosu https://github.com/tianon/gosu/releases/download/1.14/gosu-amd64  && chmod +x /usr/local/bin/gosu
 
 ADD hdfs /

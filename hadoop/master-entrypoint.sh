@@ -33,6 +33,15 @@ echo "hadoop:$password" | chpasswd
 /etc/init.d/ssh start
 mkdir -p /hadoop/ && chown -R hadoop.hadoop /hadoop/
 gosu hadoop hadoop namenode -format
+gosu hadoop hdfs --daemon start namenode
+
+while [ "$(curl -s 'http://127.0.0.1:9870/jmx?qry=Hadoop:service=NameNode,name=NameNodeStatus' | jq  -r  .beans[0].State)" != "active" ]
+do
+	echo Waiting for NameNode
+  sleep 1
+done
+echo NameNode Started
 gosu hadoop start-all.sh
+
 
 tail -f /dev/null
