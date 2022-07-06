@@ -170,7 +170,6 @@ func (r *HadoopReconciler) externalServiceForMaster(h *apachev1.Hadoop) *corev1.
 				{Name: "yarn", Port: 8088},
 				{Name: "metadata", Port: h.Spec.HealthPort},
 				{Name: "dashboard", Port: 9870},
-				{Name: "yarnproxy", Port: 80},
 			},
 			Selector: labelsForHadoopMaster(h.Name),
 		},
@@ -271,7 +270,6 @@ func (r *HadoopReconciler) statefulSetForMaster(h *apachev1.Hadoop) *appsv1.Stat
 							{ContainerPort: h.Spec.HealthPort, Name: "metadata"},
 							{ContainerPort: 8088, Name: "yarn"},
 							{ContainerPort: 9870, Name: "dashboard"},
-							{ContainerPort: 80, Name: "yarnproxy"},
 						},
 						Env: []corev1.EnvVar{
 							{Name: "MASTER_ENDPOINT", Value: masterEndpoint},

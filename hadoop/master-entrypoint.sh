@@ -34,6 +34,5 @@ echo "hadoop:$password" | chpasswd
 mkdir -p /hadoop/ && chown -R hadoop.hadoop /hadoop/
 gosu hadoop hadoop namenode -format
 gosu hadoop start-all.sh
-gosu hadoop yarn proxyserver
 
 tail -f /dev/null
